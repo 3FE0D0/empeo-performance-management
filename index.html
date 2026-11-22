@@ -49,6 +49,16 @@ body{background:linear-gradient(180deg,#fff 0,#fff9f6 350px,#fff8f4 100%)}
 .fair-notes{margin-top:13px;padding:12px;border-left:3px solid #f15b32;background:#fff4ee;border-radius:5px;font-size:12px;line-height:1.6;color:#75432f}
 @media(max-width:640px){.fair-grid{grid-template-columns:1fr}}
 
+
+/* Clear, accessible rating distribution */
+.fair-ratings-title{display:flex;justify-content:space-between;font-size:12px;font-weight:700;color:#57473f;margin:14px 0 9px}
+.fair-ratings-title span{font-weight:400;color:#8d766a}
+.fair-rating-list{display:grid;gap:8px}
+.fair-rating-row{display:grid;grid-template-columns:70px minmax(0,1fr) 28px;align-items:center;gap:10px;font-size:12px}
+.fair-rating-label{color:#66554d;white-space:nowrap}
+.fair-rating-track{height:8px;border-radius:20px;background:#f9e9e2;overflow:hidden}
+.fair-rating-track>span{display:block;height:100%;border-radius:20px;background:#f15b32}
+.fair-rating-count{text-align:right;color:#2b2320;font-weight:700;font-variant-numeric:tabular-nums}
 </style>
 </head>
 <body><header class="top"><div class="topin"><div class="brand">empeo<span>●</span><small>Performance Hub · Concept Prototype</small></div><div class="rolewrap"><span class="small">Explore as</span><select id="role" aria-label="Choose demo role"><option value="hr">HR Admin · Nina</option><option value="m1">Manager · Alex (Sales)</option><option value="m2">Manager · Jordan (Engineering)</option><option value="e1">Employee · Maya</option><option value="e4">Employee · Noah</option></select><button class="btn ghost tiny" id="reset">Reset demo</button></div></div></header><main class="shell"><div id="app"></div><div class="footer">Interactive hiring-exercise prototype · Demo-only data · Role switching is a demonstration, not production authentication or access control.</div></main><div id="toast" class="toast" role="status"></div>
@@ -99,7 +109,7 @@ function fairnessPanel(){
   <div class="fair-grid">${rows.map(t=>`<div class="fair-card"><div class="metric"><h3>${escapeHTML(t.team)}</h3><span class="small">${t.members.length} submitted / ${people().filter(p=>p.team===t.team).length}</span></div>
   <div class="big">${t.avg===null?'—':t.avg.toFixed(1)}<span class="small"> / 5 mean rating</span></div>
   <div class="fair-meter"><span style="width:${t.avg===null?0:t.avg*20}%"></span></div>
-  <div class="small">Ratings: ${[5,4,3,2,1].map(n=>`${n}★ ${t.members.filter(p=>p.review.rating===n).length}`).join(' · ')}</div></div>`).join('')}</div>
+  <div class="fair-ratings-title">Rating distribution <span>Employees</span></div><div class="fair-rating-list">${[5,4,3,2,1].map(n=>{const count=t.members.filter(p=>p.review.rating===n).length;return `<div class="fair-rating-row"><span class="fair-rating-label">Rating ${n}</span><div class="fair-rating-track"><span style="width:${t.members.length?100*count/t.members.length:0}%"></span></div><span class="fair-rating-count">${count}</span></div>`}).join('')}</div></div>`).join('')}</div>
   <div class="separator"></div><h3 style="font-size:14px;margin:0 0 8px">Compare two employees & supporting evidence</h3>
   ${options.length>=2?`<div class="fair-grid">${fairEmployee(a,'fairLeft')}${fairEmployee(b,'fairRight')}</div>`:'<div class="empty">At least two submitted reviews are needed to compare evidence.</div>'}
   <div class="fair-notes"><b>What HR should check:</b> Are managers applying the same rubric? Are the outcomes and evidence comparable? Do goal difficulty, role scope and opportunity explain differences? 
