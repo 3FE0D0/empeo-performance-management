@@ -32,6 +32,23 @@ Open `index.html` in a browser, or open the live GitHub Pages site. Use the top-
 
 This prototype does **not** automatically rank employees, assume that equal ratings prove fairness, or apply a forced bell curve. Different roles, goals, and circumstances need contextual evaluation.
 
+## Latest improvements (v1.2)
+
+- **Fairness Review Considerations:** explains why differences in ratings require contextual review of goal difficulty, role expectations, and manager evidence, without falsely claiming to detect bias.
+- **Provisional Performance Overview:** groups submitted ratings into 4–5 (High performance), 3 (Meets expectations), and 1–2 (Needs support). Pending reviews are excluded. The groups are screening aids rather than definitive judgments or calibrated results.
+- **Review Workflow Status:** displays manager reviews, HR readiness, and results release. Formal cross-team calibration remains a proposed next step, not an implemented workflow.
+- **Employee Comparison Validation:** prevents comparing the same employee in both columns.
+- **Overdue Handling:** includes a **Simulate missed deadline** control and **Extend +7 days** action for the HR demo. Managers cannot submit or edit reviews after the deadline until HR extends it. Reminders remain simulated.
+
+### Suggested extra acceptance checks
+
+1. In HR Admin, confirm that Performance overview shows 2 High, 1 Meets, 1 Needs support with the initial 4 submitted reviews.
+2. In Fairness Review, compare Maya and Noah. Check that changing a dropdown refreshes contextual guidance and that identical employee selections are blocked.
+3. In HR Admin, select **Simulate missed deadline**. Switch to Manager: rating and review submission should be disabled.
+4. Return to HR Admin and choose **Extend +7 days**. Manager submissions should be enabled again.
+5. Submit Ava and Oliver reviews, check 6/6 completion and HR readiness, publish, and confirm employee visibility.
+6. Select **Reset demo** for a clean walkthrough.
+
 ## Deliberately excluded from v1
 
 - **Cross-team calibration:** proposed requirement change for Part 2; not yet implemented in the demo.
