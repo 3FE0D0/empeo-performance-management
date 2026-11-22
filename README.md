@@ -17,7 +17,8 @@ Open `index.html` in a browser, or open the live GitHub Pages site. Use the top-
 2. **Manager · Alex:** Select Ava Patel; review goals and submit a 1–5 rating supported by at least 20 characters of performance evidence.
 3. **Manager · Jordan:** Select Oliver Reed and submit a rating and evidence.
 4. **HR Admin:** Observe full completion; publish results. You can also try extending the deadline and triggering a **demo** reminder (no real message is sent).
-5. **Employee:** Switch to Maya or Noah and see the published review. Reset the demo to confirm that reviews are hidden from employees before publishing.
+5. **HR Admin (Fairness Review):** Compare rating distributions across teams, then use the two employee dropdowns to compare goal context and documented evidence. This does not adjust ratings or lock calibration.
+6. **Employee:** Switch to Maya or Noah and see the published review. Reset the demo to confirm that reviews are hidden from employees before publishing.
 
 ## Why these features are in v1
 
@@ -25,6 +26,7 @@ Open `index.html` in a browser, or open the live GitHub Pages site. Use the top-
 - **Evidence-based evaluations:** encourages explainable, reviewable decisions.
 - **Goal tracking:** helps employees and managers see ongoing progress.
 - **HR oversight and rating distribution:** shows the review status and provides context for examining differences.
+- **Cross-team Fairness Review (added):** compare Sales and Engineering rating patterns side-by-side; choose two submitted employees and inspect their goals, rating, and documented evidence. This is a contextual review aid, **not** automated bias detection or a locked calibration workflow.
 - **Deadline handling:** supports a missed cycle deadline with an extension and simulated reminders.
 - **Publish gate:** prevents employees from seeing provisional scores before HR releases results.
 
